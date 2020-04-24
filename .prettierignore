@@ -1,0 +1,10 @@
+.editorconfig
+.gitignore
+.gitkeep
+.prettierignore
+browserslist
+dist
+favicon.ico
+package-lock.json
+package.json
+yarn.lock

@@ -1,0 +1,82 @@
+$prefix: '\\:' !default;
+
+:host {
+	display: block;
+}
+
+button {
+	font-size: inherit;
+	font-weight: inherit;
+
+	background: none;
+	border: none;
+	padding: 0;
+	outline: none;
+
+	box-sizing: border-box;
+}
+
+.mk-btn {
+	cursor: pointer;
+
+	position: absolute;
+	border-radius: 3px;
+
+	overflow: hidden;
+
+	height: 36px;
+	line-height: 36px;
+
+	> .mk-btn__container {
+		height: 36px;
+		transition: margin-top 0.35s, height 0.35s;
+	}
+
+	&--default {
+		> .mk-btn__container {
+			transition: all 0s;
+		}
+		> .mk-btn__container--default {
+			margin-top: 0px;
+		}
+	}
+
+	&--process {
+		> .mk-btn__container--default {
+			margin-top: -36px;
+		}
+	}
+
+	&--done {
+		> .mk-btn__container--default {
+			margin-top: -72px;
+		}
+	}
+}
+
+.mk-btn__container {
+	$self: &;
+
+	position: relative;
+	padding: 0 16px;
+
+	&--default {
+		background-color: silver;
+	}
+
+	&--process {
+		overflow: hidden;
+		background-color: blue;
+	}
+
+	&--success {
+		background-color: green;
+	}
+
+	&--error {
+		background-color: red;
+	}
+
+	&--active {
+	}
+}

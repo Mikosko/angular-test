@@ -1,0 +1,31 @@
+<button
+	[ngClass]="{
+		'mk-btn': true,
+		'mk-btn--default': state === BtnState.Default,
+		'mk-btn--process': state === BtnState.Process,
+		'mk-btn--done': state === BtnState.Success || state === BtnState.Failure
+	}"
+	(click)="onClick($event)"
+>
+	<div
+		*ngFor="let item of renderItems"
+		[ngClass]="{
+			'mk-btn__container': true,
+			'mk-btn__container--active': true,
+			'mk-btn__container--default': item === BtnState.Default,
+			'mk-btn__container--process': item === BtnState.Process,
+			'mk-btn__container--success': item === BtnState.Success,
+			'mk-btn__container--failure': item === BtnState.Failure
+		}"
+	>
+		<ng-content *ngIf="item === BtnState.Default"></ng-content>
+		<ng-content
+			*ngIf="item === BtnState.Process"
+			select="[btn-process]"
+		></ng-content>
+		<ng-content
+			*ngIf="item === BtnState.Success"
+			select="[btn-success]"
+		></ng-content>
+	</div>
+</button>
